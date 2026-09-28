@@ -5,6 +5,7 @@ definePageMeta({
 	layout: 'bare',
 	pageTransition: { name: 'auth', mode: 'out-in' }
 })
+
 const { fetch: refreshSession } = useUserSession()
 const toast = useToast()
 
@@ -59,8 +60,8 @@ async function onSubmit(event: FormSubmitEvent<LoginAccountSchema>) {
 				</div>
 			</template>
 
-			<UForm :disabled="isLogginIn" id="login-form" ref="form" :schema="loginAccountSchema" :state="state"
-				class="space-y-4 p-3" @submit="onSubmit">
+			<UForm :disabled="isLogginIn" id="login-form" ref="form" :state="state" class="space-y-4 p-3"
+				@submit="onSubmit">
 				<UFormField required label="Benutzername" name="name">
 					<UInput v-model="state.name" class="w-full" placeholder="wichtel082" />
 				</UFormField>

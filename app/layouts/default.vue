@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const { user, clear: clearSession } = useUserSession()
+import Account from '~/components/modal/header/Account.vue'
+
+const { user, clear: clearSession, ready, loggedIn } = useUserSession()
 
 const username = computed<string>((previous) => {
 	if (user.value?.name !== undefined) {
@@ -14,7 +16,7 @@ async function logout() {
 	await navigateTo('login')
 }
 
-const { open } = useConfirmationModal('Abmelden', 'Bist du dir sicher dasss du dich abmelden möchtest?')
+const { open } = useConfirmationModal('Abmelden', 'Bist du dir sicher dass du dich abmelden möchtest?')
 
 function handleLogout() {
 	open().then(doLogout => {
@@ -30,12 +32,13 @@ function handleLogout() {
 	<UPage>
 		<UHeader>
 			<template #title>
-				<h1>Wichtel App</h1>
+				<span class="text-2xl">
+					🎁
+				</span>
 			</template>
 
-
 			<template #right>
-				<p>Hallo {{ username }}</p>
+				<Account :username="username" />
 				<UButton variant="ghost" icon="i-lucide-log-out" @click="handleLogout" />
 				<UColorModeButton />
 			</template>

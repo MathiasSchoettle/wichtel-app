@@ -1,46 +1,47 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	modules: [
-		'@nuxt/eslint',
-		'@nuxt/ui',
-		'@nuxthub/core',
-		'nuxt-auth-utils'
-	],
+				modules: [
+				 '@nuxt/eslint',
+				 '@nuxt/ui',
+				 '@nuxthub/core',
+				 'nuxt-auth-utils',
+				 '@vueuse/nuxt'
+				],
 
-	devtools: {
-		enabled: true
-	},
+				devtools: {
+								enabled: true
+				},
 
-	runtimeConfig: {
-		session: {
-			password: 'TODO REAL PASSWORD',
-			maxAge: 60 * 60 * 24 * 30 * 6,
-		}
-	},
+				runtimeConfig: {
+								session: {
+												password: 'TODO REAL PASSWORD',
+												maxAge: 60 * 60 * 24 * 30 * 6,
+								}
+				},
 
-	app: {
-		layoutTransition: { name: 'layout', mode: 'out-in' },
-	},
+				app: {
+								layoutTransition: { name: 'layout', mode: 'out-in' },
+				},
 
-	css: ['~/assets/css/main.css'],
+				css: ['~/assets/css/main.css'],
 
-	routeRules: {
-		'/': { prerender: true }
-	},
+				routeRules: {
+								'/': { prerender: true }
+				},
 
-	hub: {
-		db: 'postgresql'
-	},
+				hub: {
+								db: 'postgresql'
+				},
 
-	compatibilityDate: '2026-06-30',
+				compatibilityDate: '2026-06-30',
 
-	eslint: {
-		config: {
-			stylistic: {
-				commaDangle: 'never',
-				braceStyle: '1tbs',
-				indent: 'tab'
-			}
-		}
-	}
+				eslint: {
+								config: {
+												stylistic: {
+																commaDangle: 'never',
+																braceStyle: '1tbs',
+																indent: 'tab'
+												}
+								}
+				}
 })

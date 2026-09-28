@@ -8,7 +8,8 @@ useHead({
 	],
 	htmlAttrs: {
 		lang: 'en'
-	}
+	},
+	title: 'Wichtel App'
 })
 const toaster = { position: 'top-center' }
 </script>
