@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Account from '~/components/modal/header/Account.vue'
+import Account from '~/components/header/Account.vue'
 
 const { user, clear: clearSession, ready, loggedIn } = useUserSession()
 

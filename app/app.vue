@@ -1,4 +1,6 @@
 <script setup>
+import { de } from '@nuxt/ui/locale'
+
 useHead({
 	meta: [
 		{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -11,11 +13,13 @@ useHead({
 	},
 	title: 'Wichtel App'
 })
+
 const toaster = { position: 'top-center' }
+
 </script>
 
 <template>
-	<UApp :toaster="toaster">
+	<UApp :toaster="toaster" :locale="de">
 		<NuxtLayout />
 	</UApp>
 </template>

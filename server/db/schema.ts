@@ -13,7 +13,8 @@ export const event = pgTable('event', {
 	id: serial().primaryKey(),
 	name: text().notNull(),
 	dueDate: timestamp().notNull(),
-	creatorId: integer().references(() => users.id)
+	creatorId: integer().references(() => users.id),
+	startDate: timestamp(),
 })
 
 // a participant of a wichtel event

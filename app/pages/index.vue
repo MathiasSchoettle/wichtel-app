@@ -1,13 +1,32 @@
 <script setup lang="ts">
 
+const { open } = useCreateEventModal()
+
 const isRefreshing = ref(false)
 
-function refresh() {
+const events = ref([])
+
+async function refresh() {
 	isRefreshing.value = true
 
 	setTimeout(() => isRefreshing.value = false, 2000)
 }
 
+async function onNewEvent() {
+	const result = await open()
+
+	if (result !== undefined) {
+		try {
+			await $fetch('/api/event', {
+				method: 'POST',
+				body: result
+			})
+
+		} catch (e) {
+			console.debug(e)
+		}
+	}
+}
 </script>
 
 <template>
@@ -18,7 +37,7 @@ function refresh() {
 
 			<span class="flex items-center gap-2">
 				<UButton :loading="isRefreshing" @click="refresh" variant="ghost" icon="i-lucide-rotate-ccw" />
-				<UButton trailing-icon="i-lucide-plus">Neues Event</UButton>
+				<UButton @click="onNewEvent" trailing-icon="i-lucide-plus">Neues Event</UButton>
 			</span>
 		</div>
 

@@ -78,7 +78,7 @@ async function onSubmit(event: FormSubmitEvent<CreateAccountSchema>) {
 				</UFormField>
 
 				<UFormField required label="Email" name="email">
-					<UInput put v-model="state.email" placeholder="email@beispiel.net" class="w-full" />
+					<UInput v-model="state.email" placeholder="email@beispiel.net" class="w-full" />
 				</UFormField>
 
 				<UFormField required label="Passwort" name="password">
